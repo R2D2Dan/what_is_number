@@ -14,9 +14,12 @@ import (
 func WhatIsNumber() {
 	rand.Seed(time.Now().UnixNano())
 	number := rand.Intn(100) + 1
+	defer fmt.Println("Загаданное число было:", number)
 	fmt.Println("Число загадано от 1 до 100")
+	fmt.Printf("У вас %v попыток.\n", 5)
 	r := bufio.NewReader(os.Stdin)
-	for x := 0; x < 10; x++ {
+	for x := 0; x < 5; x++ {
+
 		fmt.Println("Какое это число? Попытка:", x+1)
 		fmt.Print("Введите число: ")
 		i, _ := r.ReadString('\n')
